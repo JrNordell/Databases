@@ -77,7 +77,7 @@ public class SearchByAuthorPanel extends JPanel {
                 Book book = (Book)tempCombo.getSelectedItem();
 
                     //set the price JLabel to what the book says the price is
-                price.setText(book.getPrice().toString());
+                price.setText("$ " + book.getPrice().toString());
 
                     //remove the location panel that is already there and and create a new one
                 instance.remove(locationPanel);

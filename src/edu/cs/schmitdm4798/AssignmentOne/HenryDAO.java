@@ -13,11 +13,11 @@ import java.util.List;
 public class HenryDAO {
 
         //JDBC driver identifier and database URL
-    static final String DB_URL = "jdbc:oracle:thin:@dario.cs.uwec.edu:1521:csdev";
+    private static final String DB_URL = "jdbc:oracle:thin:@dario.cs.uwec.edu:1521:csdev";
 
         //Database credentials
-    static final String USER = "SCHMITDM4798";
-    static final String PASS = "NTT4SWUF";
+    private static final String USER = "SCHMITDM4798";
+    private static final String PASS = "NTT4SWUF";
 
     private Connection connection = null;
     private Statement statement = null;
@@ -88,8 +88,10 @@ public class HenryDAO {
 
         firstName = firstName.replace("'","''");
         lastName = lastName.replace("'","''");
-        String sql = "SELECT * FROM henry_book INNER JOIN henry_wrote on henry_book.book_code = henry_wrote.book_code INNER JOIN henry_inventory ON henry_book.book_code = henry_inventory.book_code " +
-                "INNER JOIN henry_branch ON henry_inventory.branch_num = henry_branch.branch_num INNER JOIN henry_author ON henry_author.author_num = henry_wrote.author_num" +
+        String sql = "SELECT * FROM henry_book INNER JOIN henry_wrote on henry_book.book_code = henry_wrote.book_code " +
+                "INNER JOIN henry_inventory ON henry_book.book_code = henry_inventory.book_code " +
+                "INNER JOIN henry_branch ON henry_inventory.branch_num = henry_branch.branch_num " +
+                "INNER JOIN henry_author ON henry_author.author_num = henry_wrote.author_num" +
                 " WHERE author_first = '"+firstName+"' AND author_last = '"+lastName+"'";
 
 
