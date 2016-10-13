@@ -1,7 +1,7 @@
 package edu.cs.schmitdm4798.AssignmentOne;
 
 /**
- * Created by Admin on 10/12/2016.
+ * Created by Dave and Jack.
  */
 public class Location {
 

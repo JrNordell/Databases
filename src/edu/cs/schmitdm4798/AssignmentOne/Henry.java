@@ -6,7 +6,7 @@ import java.awt.*;
 
 
 /**
- * Created by David.
+ * Created by Dave and Jack.
  *
  * The Goal of this class is to set up the GUI for the program
  *

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Admin on 10/12/2016.
+ * Created by Dave and Jack.
  */
 public class SearchByPublisherPanel extends JPanel {
 

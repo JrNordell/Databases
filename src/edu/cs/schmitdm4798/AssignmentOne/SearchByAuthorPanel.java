@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.List;
 
 /**
- * Created by Dave and Jack on 10/12/2016.
+ * Created by Dave and Jack.
  *
  * This class sets up the search by author panel for the program
  */

@@ -1,7 +1,7 @@
 package edu.cs.schmitdm4798.AssignmentOne;
 
 /**
- * Created by Dave 10/12/2016.
+ * Created by Dave and Jack.
  *
  * The purpose of this class is to be a connector for the GUI and a Database
  */
