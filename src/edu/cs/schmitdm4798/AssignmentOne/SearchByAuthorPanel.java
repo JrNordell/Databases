@@ -28,7 +28,7 @@ public class SearchByAuthorPanel extends JPanel {
             }
         });
 
-        //test
+        //foo
 
         this.add(comboBox);
         this.setBackground(color);
