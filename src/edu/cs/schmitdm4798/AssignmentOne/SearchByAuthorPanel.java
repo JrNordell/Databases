@@ -43,12 +43,11 @@ public class SearchByAuthorPanel extends JPanel {
         }
 
             //create a model for the combobox that will hold the author objects and can be changed
-        DefaultComboBoxModel<Author> authorModel = new DefaultComboBoxModel<Author>(new Vector<Author>(authorList));
+        DefaultComboBoxModel<Author> authorModel = new DefaultComboBoxModel<>(new Vector<>(authorList));
         JComboBox<Author> comboBoxAuthor = new JComboBox<>(authorModel);
 
             //listen for clicks on the combobox
         comboBoxAuthor.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                     //grab the combo box and then get the author that was selected
                 JComboBox tempCombo = (JComboBox) e.getSource();
@@ -70,7 +69,6 @@ public class SearchByAuthorPanel extends JPanel {
 
             //listen for actions on the book combobox
         comboBoxBook.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                     //grab the combobox and book
                 JComboBox tempCombo = (JComboBox) e.getSource();

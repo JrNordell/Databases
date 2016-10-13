@@ -122,6 +122,46 @@ public class HenryDAO {
         return author;
     }
 
+    //retrieves the list of category abbreviations in alphabetical order
+    public List<String> getCategoryList(){
+
+        String sql = "SELECT DISTINCT type FROM henry_book ORDER BY type";
+        List<String> genre = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+
+                genre.add(resultSet.getString("type"));
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return genre;
+    }
+
+    //Retrieves the list of publisher names in alphabetical order
+    public List<String> getPublisherList(){
+
+        String sql = "SELECT publisher_name\n" +
+                "FROM henry_publisher " +
+                "ORDER BY publisher_name";
+
+        List<String> publisherName = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+
+                publisherName.add(resultSet.getString("publisher_name"));
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return publisherName;
+    }
     public static void main(String[] args) {
         new HenryDAO();
     }

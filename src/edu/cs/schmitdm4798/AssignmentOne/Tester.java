@@ -1,7 +1,7 @@
 package edu.cs.schmitdm4798.AssignmentOne;
 
 /**
- * Created by Dave and Jack.
+ * Created by Dave.
  */
 public class Tester {
 
