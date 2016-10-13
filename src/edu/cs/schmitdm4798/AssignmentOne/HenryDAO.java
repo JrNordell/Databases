@@ -52,11 +52,11 @@ public class HenryDAO {
 
     }
 
-    public List<String> getAuthorList(){
+    public List<Author> getAuthorList(){
 
 
         String sql = "SELECT author_last, author_first FROM henry_author";
-        List<String> authorList = new ArrayList<>();
+        List<Author> authorList = new ArrayList<>();
 
         try {
             statement = connection.createStatement();
@@ -64,8 +64,11 @@ public class HenryDAO {
 
             while(resultSet.next()){
 
+                Author author = new Author(resultSet.getString("author_first").trim(), resultSet.getString("author_last").trim());
+//                authorList.add(resultSet.getString("author_first").trim() + " " +resultSet.getString("author_last").trim());
 
-                authorList.add(resultSet.getString("author_first").trim() + " " +resultSet.getString("author_last").trim());
+                authorList.add(author);
+
 
             }
 
@@ -78,17 +81,18 @@ public class HenryDAO {
         return authorList;
     }
 
-    public Author getBookData(){
+    public Author getBookData(Author author){
 
-        Author author = new Author();
+        String firstName = author.getFirst();
+        String lastName = author.getLast();
 
-       // String sql = "SELECT title, price, branch_name, on_hand FROM henry_book INNER JOIN henry_wrote ON henry_book.book_code = henry_wrote.book_code
-        // INNER JOIN henry_inventory ON henry_book.book_code = henry_inventory.book_code
-        // INNER JOIN henry_branch ON henry_inventory.branch_num = henry_branch.branch_num
-        // INNER JOIN henry_author ON henry_author.author_num = henry_wrote.author_num ON henry_author.author_num = henry_wrote.author_num;";
+        firstName = firstName.replace("'","''");
+        lastName = lastName.replace("'","''");
         String sql = "SELECT * FROM henry_book INNER JOIN henry_wrote on henry_book.book_code = henry_wrote.book_code INNER JOIN henry_inventory ON henry_book.book_code = henry_inventory.book_code " +
                 "INNER JOIN henry_branch ON henry_inventory.branch_num = henry_branch.branch_num INNER JOIN henry_author ON henry_author.author_num = henry_wrote.author_num" +
-                " WHERE author_first = 'Dick' AND author_last = 'Francis'";
+                " WHERE author_first = '"+firstName+"' AND author_last = '"+lastName+"'";
+
+
 
         try{
             statement = connection.createStatement();
@@ -109,6 +113,7 @@ public class HenryDAO {
 
         }catch (SQLException ex){
             ex.printStackTrace();
+
         }
 
 

@@ -19,7 +19,7 @@ public class Henry {
 
     public Henry(){
         JFrame frame = new JFrame();
-        frame.setSize(1152,648);
+        frame.setSize(600,200);
         Color color = new Color(63,81,181);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
