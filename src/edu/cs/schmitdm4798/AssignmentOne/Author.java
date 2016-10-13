@@ -9,8 +9,20 @@ import java.util.List;
 public class Author {
 
     private List<Book> bookList;
+    private String first;
+    private String last;
 
-    public Author(){
+    public String getFirst() {
+        return first;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public Author(String first, String last){
+        this.first = first;
+        this.last = last;
         bookList = new ArrayList<>();
     }
 
@@ -21,12 +33,16 @@ public class Author {
 
         if(bookList.size() != 0){
 
-            while(isDone || bookList.size() <= i){
+
+            while(!(isDone || bookList.size() <= i)){
 
                 if(bookList.get(i).equals(book)){
+
                     bookList.get(i).addLocation(book.getLocation().get(0));
                     isDone = true;
+
                 }else{
+
                     ++i;
                 }
             }
@@ -38,8 +54,14 @@ public class Author {
             bookList.add(book);
         }
 
+    }
 
+    public List<Book> getBookList(){
+        return bookList;
+    }
 
+    public String toString(){
+        return first + " " + last;
     }
 
 }

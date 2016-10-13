@@ -73,4 +73,8 @@ public class Book {
         Book book = (Book)object;
         return (this.bookCode.equals(book.bookCode));
     }
+
+    public String toString(){
+        return title;
+    }
 }
